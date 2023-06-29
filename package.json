@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "node-cron": "^3.0.2",
+    "puppeteer": "^20.7.3"
+  }
+}

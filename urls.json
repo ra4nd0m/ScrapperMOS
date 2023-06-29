@@ -1,0 +1,26 @@
+[
+    {
+        "site_url":"https://www.finam.ru/quote/tovary/palladium",
+        "selector":"#finfin-local-plugin-quote-item-review-price",
+        "title_selector":"#titleText",
+        "time_to_parse":"*/1 * * * *"
+    },
+    {
+        "site_url":"https://www.finam.ru/quote/tovary/gold",
+        "selector":"#finfin-local-plugin-quote-item-review-price",
+        "title_selector":"#titleText",
+        "time_to_parse":"*/1 * * * *"
+    },
+    {
+        "site_url":"https://www.finam.ru/quote/tovary/silver",
+        "selector":"#finfin-local-plugin-quote-item-review-price",
+        "title_selector":"#titleText",
+        "time_to_parse":"*/2 * * * *"
+    },
+    {
+        "site_url":"https://www.finam.ru/quote/tovary/platinum",
+        "selector":"#finfin-local-plugin-quote-item-review-price",
+        "title_selector":"#titleText",
+        "time_to_parse":"*/2 * * * *"
+    }
+]
