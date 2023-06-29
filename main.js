@@ -4,11 +4,13 @@ const sender = require('./sender');
 const cron =require('node-cron');
 require('dotenv').config();
 
+//константы для определения времени и различные пулы для заполнения
 const every_minute='*/1 * * * *';
 let urls_every_minute =[];
 const every_two_minutes='*/2 * * * *';
 let urls_every_two_minutes=[];
 
+//получение ссылок из файла и разбиение по пулам
 let urls = JSON.parse(fs.readFileSync(process.env.POOL_PATH,'utf-8'));
 for(url of urls){
     switch(url.time_to_parse){
@@ -21,7 +23,7 @@ for(url of urls){
     }
 }
 
-
+//задачи по скраппингу по расписаню на основе cron
 cron.schedule(every_minute,async()=>{
     console.log("time");
     const post_url = process.env.POST_URL;
