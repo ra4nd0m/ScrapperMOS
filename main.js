@@ -12,7 +12,7 @@ let urls_every_two_minutes=[];
 
 //получение ссылок из файла и разбиение по пулам
 let urls = JSON.parse(fs.readFileSync(process.env.POOL_PATH,'utf-8'));
-for(url of urls){
+for(const url of urls){
     switch(url.time_to_parse){
         case every_minute:
             urls_every_minute.push(url);
@@ -25,7 +25,7 @@ for(url of urls){
 
 //задачи по скраппингу по расписаню на основе cron
 cron.schedule(every_minute,async()=>{
-    console.log("time");
+    console.log(every_minute);
     const post_url = process.env.POST_URL;
     let data = await parser.getData(urls_every_minute);
     console.log(data);
@@ -33,7 +33,7 @@ cron.schedule(every_minute,async()=>{
 });
 
 cron.schedule(every_two_minutes,async()=>{
-    console.log("two");
+    console.log(every_two_minutes);
     const post_url = process.env.POST_URL;
     let data = await parser.getData(urls_every_two_minutes);
     console.log(data);
