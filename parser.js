@@ -1,9 +1,11 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+puppeteer.use(StealthPlugin());
 
 //функция для извлечения данных с сайта
 async function getData(sites){
     //запуск браузера и подготовка массива объектов для данных
-    const browser = await puppeteer.launch({headless: false});
+    const browser = await puppeteer.launch({headless: "new"});
     const page = await browser.newPage();
     await page.setDefaultNavigationTimeout(0);
     let obj=[];
