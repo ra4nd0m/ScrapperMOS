@@ -8,6 +8,10 @@ const every_minute='*/1 * * * *';
 let urls_every_minute =[];
 const every_two_minutes='*/2 * * * *';
 let urls_every_two_minutes=[];
+const every_hour='* */1 * * *';
+let urls_every_hour = [];
+const every_day='* * */1 * *';
+let urls_every_day = [];
 const post_url = process.env.POST_URL;
 
 //получение ссылок из файла и разбиение по пулам
@@ -32,6 +36,14 @@ cron.schedule(every_minute,async()=>{
 
 cron.schedule(every_two_minutes,async()=>{
    executor.scrapAndSend(urls_every_two_minutes,every_two_minutes,post_url);
+})
+
+cron.schedule(every_hour,async()=>{
+    executor.scrapAndSend(urls_every_hour,every_hour,post_url);
+})
+
+cron.schedule(every_day,async()=>{
+    executor.scrapAndSend(urls_every_day,every_day,post_url);
 })
 
 
