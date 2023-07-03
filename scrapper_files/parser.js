@@ -25,9 +25,16 @@ async function getData(sites){
             let returnValue=title+"\n"+price;
             return returnValue.split("\n");
         },selector,title_selector);
+        //Получаем дату получения данных
+        let date = new Date();
+        //если парсим раз в день, то округляем до нуля часов
+        if(site.time_to_parse=='* */1 * * *'){
+            date.setHours(date.getHours()+Math.round(date.getMinutes()/60));
+            date.setMinutes(0,0,0);
+        }
         //парсим все в JSON и пихаем в объект для дальнейшего возвращения
-            console.log(JSON.stringify({"material_name":result[0],"price":result[1],"material_source":url}));
-            obj.push({"material_name":result[0],"price":result[1],"material_source":url});
+        console.log(JSON.stringify({"material_name":result[0],"price":result[1],"material_source":url,"created_on":date}));
+        obj.push({"material_name":result[0],"price":result[1],"material_source":url,"created_on":date});
     }
 
     //закрываем браузер и возвращаем данные
