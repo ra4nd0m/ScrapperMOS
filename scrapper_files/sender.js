@@ -18,7 +18,7 @@ function postData(data,post_url){
     .then(text=>console.log(text))
     //ловим ошибку
     .catch((error)=>{
-        console.log(error);
+        console.error(error);
     })
 }
 
