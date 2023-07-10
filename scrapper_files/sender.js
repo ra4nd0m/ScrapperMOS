@@ -1,28 +1,29 @@
 
-function postData(data,post_url){
+function postData(data,  post_url) {
     //Пробуем отправить данные по ссылке
-    fetch(post_url,{
+    fetch(post_url, {
         method: 'post',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' }
-    }).then((res)=>{
+    }).then((res) => {
         //проверяем результат отправки
-        if(res.ok){
+        if (res.ok) {
             return res;
         }
         //если не ок то ошибка
         throw new Error("There is some kind of error in POST process!\n")
     })
-    //выводим ответ
-    .then(res => res.text())
-    .then(text=>console.log(text))
-    //ловим ошибку
-    .catch((error)=>{
-        console.error(error);
-    })
+        //выводим ответ
+        .then(res => res.text())
+        .then(text => console.log(text))
+        //ловим ошибку
+        .catch((error) => {
+            console.log("Error sending the data!");
+            console.error(error);
+        })
 }
 
 
 
 
-module.exports = {postData};
+module.exports = { postData };
