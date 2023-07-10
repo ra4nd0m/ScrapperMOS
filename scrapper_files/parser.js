@@ -38,7 +38,9 @@ async function getData(sites) {
             let returnValue = title + "\n" + price;
             return returnValue.split("\n");
         }, selector, title_selector);
-
+        if (result.title == 'Error!') {
+            continue;
+        }
         //Получаем дату получения данных
         let date = new Date();
         //если парсим раз в день, то округляем до нуля часов
